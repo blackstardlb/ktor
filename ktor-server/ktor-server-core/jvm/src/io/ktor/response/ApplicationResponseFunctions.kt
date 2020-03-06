@@ -134,7 +134,7 @@ suspend fun ApplicationCall.respondBytesWriter(
     status: HttpStatusCode? = null,
     producer: suspend ByteWriteChannel.() -> Unit
 ) {
-    respond(ChannelWriterContent(producer, contentType, status))
+    respond(ChannelWriterContent(producer, contentType ?: ContentType.Application.OctetStream, status))
 }
 
 /**
